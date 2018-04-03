@@ -17,6 +17,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -108,8 +109,8 @@ public class User implements Serializable {
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
     
-    //@OneToMany(mappedBy="spot")
-    //private Spot ownSpot;
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="spot", targetEntity=Spot.class)
+    private Spot ownSpot;
     
     
 
@@ -228,13 +229,13 @@ public class User implements Serializable {
         this.email = email;
     }
     
-    //public Spot getOwnSpot() {
-    //    return ownSpot;
-    //}
+    public Spot getOwnSpot() {
+        return ownSpot;
+    }
     
-    //public void setOwnSpot(Spot ownSpot) {
-      //  this.ownSpot = ownSpot;
-    //}
+    public void setOwnSpot(Spot ownSpot) {
+        this.ownSpot = ownSpot;
+    }
 //</editor-fold>
             
     
