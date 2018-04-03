@@ -108,8 +108,8 @@ public class User implements Serializable {
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
     
-    @OneToMany
-    private Spot ownSpot;
+    //@OneToMany(mappedBy="spot")
+    //private Spot ownSpot;
     
     
 
@@ -228,13 +228,13 @@ public class User implements Serializable {
         this.email = email;
     }
     
-    public Spot getOwnSpot() {
-        return ownSpot;
-    }
+    //public Spot getOwnSpot() {
+    //    return ownSpot;
+    //}
     
-    public void setOwnSpot(Spot ownSpot) {
-        this.ownSpot = ownSpot;
-    }
+    //public void setOwnSpot(Spot ownSpot) {
+      //  this.ownSpot = ownSpot;
+    //}
 //</editor-fold>
             
     

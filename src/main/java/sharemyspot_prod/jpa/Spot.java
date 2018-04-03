@@ -48,7 +48,7 @@ public class Spot implements Serializable{
     private Long id;
     
     @ManyToOne
-    @NotNull(message = "Die Aufgabe muss einem Benutzer geordnet werden.")
+    @NotNull(message = "Der Parkplatz muss einem Benutzer geordnet werden.")
     private User owner;
     
     @Column(name = "PLACE", length = 64)
