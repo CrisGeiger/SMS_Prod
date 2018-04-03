@@ -21,6 +21,7 @@ import sharemyspot_prod.jpa.User;
  * Cristian Geiger: 12.3 extends wurde von Cristian ergänzt und die Klasse darauf hin angepasst 
  * edited Bastian Schabbach 19.03 Methoden findUser ergänzt
  * edited Schabbach /21.03.2018/ Registration methode an Entityklasse angepasst
+ * edited Becker: 1.04.2018 Deutsche Bezeichnungen auf englische Begriffe abgeändert.
  */
         /**
          * Die Userbean bietet verschiedene Methoden, um als Benutzer am Benutzerprofil zu bearbeiten 
@@ -61,18 +62,19 @@ public class UserBean extends EntityBean<User, Long> {
       * @param username
       * @param password
       * @param password2
-      * @param nachname
-      * @param vorname
-      * @param ort
+      * @param lastName
+      * @param firstName
+      * @param place
       * @param plz
-      * @param anschrift
-      * @param telefon
+      * @param road
+      * @param roadNumber
+      * @param phoneNumber
       * @param email
       * @throws sharemyspot.ejb.UserBean.UsernameException
       * @throws sharemyspot.ejb.UserBean.PasswordException
     
       */
-     public void registration(String username,String password,String password2,String nachname,String vorname,String ort,String plz,String road, String roadnumber,String telefon,String email)
+     public void registration(String username,String password,String password2,String lastName,String firstName,String place,String plz,String road, String roadNumber,String phoneNumber,String email)
              throws UsernameException, PasswordException{
          
          if(em.find(User.class,username)!= null){
@@ -82,7 +84,7 @@ public class UserBean extends EntityBean<User, Long> {
              throw new PasswordException("Die Passwörter stimmen nicht überein.");
          }
          
-         User user= new User(username, password, nachname, vorname, ort, plz, road, roadnumber, telefon, email);
+         User user= new User(username, password, lastName, firstName, place, plz, road, roadNumber, phoneNumber, email);
          user.addToGroup("ShareMySpot-user");
          em.persist(user);
      }
@@ -103,7 +105,7 @@ public class UserBean extends EntityBean<User, Long> {
      * @param user
      * @param oldPassword
      * @param newPassword
-     * @throws sharemyspot.ejb.UserBean.InvalidCredentialsException
+     * @throws sharemyspot_prod.ejb.UserBean.InvalidCredentialsException
      */
      @RolesAllowed("ShareMySpot-user")
     public void changePassword(User user, String oldPassword, String newPassword) throws InvalidCredentialsException {
