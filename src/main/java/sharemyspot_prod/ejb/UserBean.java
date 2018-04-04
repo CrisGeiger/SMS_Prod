@@ -40,7 +40,7 @@ public class UserBean extends EntityBean<User, Long> {
     EJBContext ctx;
     
     @Override
-    @RolesAllowed("shareMySpot-app-user")
+    @RolesAllowed("ShareMySpot-app-user")
     public void delete(User user){ // Methode zum löschen eines Benutzers
        this.em.remove(user);
     }
