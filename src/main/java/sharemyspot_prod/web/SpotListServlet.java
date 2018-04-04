@@ -127,7 +127,7 @@ public class SpotListServlet extends HttpServlet {
       
 
         
-        request.getRequestDispatcher("/WEB-INF/app/Spot_list.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/app/spot_list.jsp").forward(request, response);
 
 
        
