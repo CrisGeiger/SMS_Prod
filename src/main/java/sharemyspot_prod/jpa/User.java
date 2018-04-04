@@ -109,8 +109,10 @@ public class User implements Serializable {
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
     
+    /**
     @OneToMany(fetch=FetchType.LAZY)
     private Spot ownSpot;
+    */
     
     
 
@@ -210,7 +212,7 @@ public class User implements Serializable {
     }
     
     public void setRoadnumber(String roadnumber) {
-        this.roadNumber = roadNumber;
+        this.roadNumber = roadnumber;
     }
     
     public String getPhoneNumber() {
@@ -229,6 +231,7 @@ public class User implements Serializable {
         this.email = email;
     }
     
+    /**
     public Spot getOwnSpot() {
         return ownSpot;
     }
@@ -236,6 +239,8 @@ public class User implements Serializable {
     public void setOwnSpot(Spot ownSpot) {
         this.ownSpot = ownSpot;
     }
+    */
+    
 //</editor-fold>
             
     
