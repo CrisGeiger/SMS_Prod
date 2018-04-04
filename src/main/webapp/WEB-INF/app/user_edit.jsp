@@ -1,18 +1,18 @@
 <%-- 
-    Autor: AJ
-    edited Schabbach /26.03.2018/ Signup auf Entity "User" angepasst
+    Document   : user_edit
+    Created on : 26.03.2018, 10:21:45
+    Author     : Budda
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@taglib tagdir="/tags/templates" prefix="template"%>
+<%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-<c:set var="base_url" value="<%=request.getContextPath()%>" />
-
 <template:base>
     <jsp:attribute name="title">
-        Registrierung
+        Benutzerprofil bearbeiten
     </jsp:attribute>
 
     <jsp:attribute name="head">
@@ -21,7 +21,7 @@
 
     <jsp:attribute name="menu">
         <div class="menuitem">
-            <a href="<c:url value="/logout/"/>">Einloggen</a>
+            <a href="<c:url value="/app/tasks/"/>">Übersicht</a>
         </div>
     </jsp:attribute>
 
@@ -31,108 +31,108 @@
                 <div class="column">
                     <%-- CSRF-Token --%>
                     <input type="hidden" name="csrf_token" value="${csrf_token}">
-
+                    <h2>Logindaten</h2>        
                     <%-- Eingabefelder --%>
-                    <label for="signup_username">
+                    <label for="edit_username">
                         Benutzername:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_username" value="${signup_form.values["signup_username"][0]}">
+                        <input type="text" name="edit_username" value="${edit_form.values["edit_username"][0]}" >
                     </div>
-
-                    <label for="signup_password1">
-                        Passwort:
+                    
+                    <label for="edit_oldpw">
+                        old Passwort:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="password" name="signup_password1" value="${signup_form.values["signup_password1"][0]}">
+                        <input type="password" name="edit_oldpw" value="${edit_form.values["edit_oldpw"][0]}">
+                    </div>
+                    
+                    <label for="edit_password1">
+                        Passwort (PW ändern sonst "default"):
+                        <span class="required">*</span>
+                    </label>
+                    <div class="side-by-side">
+                        <input type="password" name="edit_password1" value="${edit_form.values["edit_password1"][0]}">
                     </div>
 
-                    <label for="signup_password2">
+                    <label for="edit_password2">
                         Passwort (wdh.):
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="password" name="signup_password2" value="${signup_form.values["signup_password2"][0]}">
+                        <input type="password" name="edit_password2" value="${edit_form.values["edit_password2"][0]}">
                     </div>
                     
-                    <label for="signup_vorname">
-                        Vorname:
-                        <span class="required">*</span>
-                    </label>
-                    <div class="side-by-side">
-                        <input type="text" name="signup_vorname" value="${signup_form.values["signup_vorname"][0]}">
-                    </div>
-                    
-                    <label for="signup_nachname">
+                    <h2>Anschrift</h2>
+                    <label for="edit_nachname">
                         Nachname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_nachname" value="${signup_form.values["signup_nachname"][0]}">
+                        <input type="text" name="edit_nachname" value="${edit_form.values["edit_nachname"][0]}">
                     </div>
-                    
-                    <label for="signup_ort">
-                        Ort:
+                    <label for="edit_vorname">
+                        Vorname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_ort" value="${signup_form.values["signup_ort"][0]}">
+                        <input type="text" name="edit_vorname" value="${edit_form.values["edit_vorname"][0]}">
                     </div>
                     
-                    <label for="signup_plz">
-                        PLZ:
+                    <label for="edit_strasse">
+                        Strassenname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_plz" value="${signup_form.values["signup_plz"][0]}">
+                        <input type="text" name="edit_strasse" value="${edit_form.values["edit_strasse"][0]}">
                     </div>
-                    
-                    <label for="signup_road">
-                        Straße:
-                        <span class="required">*</span>
-                    </label>
-                    <div class="side-by-side">
-                        <input type="text" name="signup_road" value="${signup_form.values["signup_road"][0]}">
-                    </div>
-                    
-                    <label for="signup_roadnumber">
+                    <label for="edit_hausnummer">
                         Hausnummer:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_roadnumber" value="${signup_form.values["signup_roadnumber"][0]}">
+                        <input type="text" name="edit_hausnummer" value="${edit_form.values["edit_hausnummer"][0]}">
                     </div>
                     
-                    <label for="signup_telefon">
+                    <label for="edit_plz">
+                        PLZ & Ort:
+                        <span class="required">*</span>
+                    </label>
+                    <div class="side-by-side">
+                        <input type="text" name="edit_ort" value="${edit_form.values["edit_ort"][0]}">
+                        <input type="text" name="edit_plz" value="${edit_form.values["edit_plz"][0]}">
+                    </div>
+                    
+                    <h2>Kontaktdaten</h2>
+                    <label for="edit_telefon">
                         Telefonnummer:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_telefon" value="${signup_form.values["signup_telefon"][0]}">
+                        <input type="text" name="edit_telefon" value="${edit_form.values["edit_telefon"][0]}">
                     </div>
                     
-                    <label for="signup_email">
+                    <label for="edit_mail">
                         E-Mail:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_email" value="${signup_form.values["signup_email"][0]}">
+                        <input type="text" name="edit_mail" value="${edit_form.values["edit_mail"][0]}">
                     </div>
-
+                    
                     <%-- Button zum Abschicken --%>
                     <div class="side-by-side">
                         <button class="icon-pencil" type="submit">
-                            Registrieren
+                            Ändern
                         </button>
                     </div>
                 </div>
-
                 <%-- Fehlermeldungen --%>
-                <c:if test="${!empty signup_form.errors}">
+                <c:if test="${!empty edit_form.errors}">
                     <ul class="errors">
-                        <c:forEach items="${signup_form.errors}" var="error">
+                        <c:forEach items="${edit_form.errors}" var="error">
                             <li>${error}</li>
                             </c:forEach>
                     </ul>

@@ -109,7 +109,7 @@ public class User implements Serializable {
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
     
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="spot", targetEntity=Spot.class)
+    @OneToMany(fetch=FetchType.LAZY)
     private Spot ownSpot;
     
     
