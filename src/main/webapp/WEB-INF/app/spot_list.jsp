@@ -30,16 +30,16 @@
     </jsp:attribute>
         <jsp:attribute name="menu">
             <div class="menuitem">
-                <a href="<c:url value="/APP/spots/new"/>">Parkplatz anlegen</a>
+                <a href="<c:url value="/app/spots/*"/>">Parkplatz anlegen</a>
             </div>
             <div class="menuitem">
-                <a href="<c:url value="/APP/spots/own"/>">Eigene Parkplätze</a>
+                <a href="<c:url value="/app/meinespots"/>">Eigene Parkplätze</a>
             </div>
             <div class="menuitem">
-                <a href="<c:url value="/APP/spots/favourites"/>">Favoriten anzeigen</a>
+                <a href="<c:url value="/app/favorites"/>">Favoriten anzeigen</a>
             </div>
             <div class="menuitem">
-                <a href="<c:url value="APP/user/edit"/>">Profil bearbeiten</a>
+                <a href="<c:url value="/app/user"/>">Profil bearbeiten</a>
             </div>
         </jsp:attribute>
         
@@ -98,7 +98,7 @@
                     <c:forEach items="${spots}" var="spot">
                         <tr>
                             <td>
-                                <a href="<c:url value="/app/spot/${spot.id}/"/>">
+                                <a href="<c:url value="/app/spots/${spot.id}/"/>">
                                 <c:out value="${spot.id}"/>
                                 </a>
                             </td>

@@ -37,6 +37,6 @@ public class UserSpotServlet extends HttpServlet {
         List<Spot> ownSpots = sb.findByUsername(this.ub.getCurrentUser().getUsername());
         request.setAttribute("ownSpots", ownSpots);
         
-        request.getRequestDispatcher("/WEB-INF/app/spot_list.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/app/userspot_list.jsp").forward(request, response);
     }
 }

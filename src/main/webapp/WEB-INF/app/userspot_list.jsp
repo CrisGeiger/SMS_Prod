@@ -12,7 +12,7 @@
 
 <template:base>
     <jsp:attribute name="title">
-        Useerspots
+        Userspots
     </jsp:attribute>
 
     <jsp:attribute name="head">
@@ -21,11 +21,11 @@
 
     <jsp:attribute name="menu">
         <div class="menuitem">
-            <a href="<c:url value="/app/spots/new/"/>">Parkplatz anlegen</a>
+            <a href="<c:url value="/app/spots/*"/>">Parkplatz anlegen</a>
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/spots/"/>">Zürück zur Spotliste</a>
+            <a href="<c:url value="/app/spots"/>">Zürück zur Spotliste</a>
         </div>
     </jsp:attribute>
 
@@ -67,7 +67,7 @@
                 </p>
             </c:when>
             <c:otherwise>
-                <jsp:useBean id="utils" class="sharemyspot.web.WebUtils"/>
+                <jsp:useBean id="utils" class="sharemyspot_prod.web.WebUtils"/>
                 
                 <table>
                     <thead>

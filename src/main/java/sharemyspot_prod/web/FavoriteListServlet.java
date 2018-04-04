@@ -23,7 +23,7 @@ import sharemyspot_prod.jpa.User;
  *
  * @author Budda
  */
-@WebServlet(name = "FavoriteListServlet", urlPatterns = {"/Favorites"})
+@WebServlet(urlPatterns = {"/app/favorites"})
 public class FavoriteListServlet extends HttpServlet{
     
     @EJB
@@ -46,6 +46,6 @@ public class FavoriteListServlet extends HttpServlet{
         }
         request.setAttribute("favoritelist",spots);
         
-        request.getRequestDispatcher("/WEB-INF/app/Favorites.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/app/fav_list.jsp").forward(request, response);
     }
 }

@@ -30,7 +30,7 @@ import sharemyspot_prod.jpa.User;
  * Das Servlet ermöglicht nach beliebigen Vorgaben Spots zu suchen, die nicht reseriert sind. Es gibt keine extra Suche deshalb, um nochmal seperat für die Buchung Suchen zu können. Da es die Benutzerfreundlichkeit wegen vielleicht doppelten Suchen  nur senken würde.
  * @author Alexander Becker
  */
-@WebServlet(name = "SearchServlet", urlPatterns = {"/Spots"})
+@WebServlet(urlPatterns = {"/app/spots"})
 public class SpotListServlet extends HttpServlet {
 
     @EJB

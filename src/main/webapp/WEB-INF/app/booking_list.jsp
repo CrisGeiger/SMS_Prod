@@ -28,13 +28,13 @@ Diese JSP zeigt die aktuellen gebuchten Parkplätze des angemeldeten Benutzers a
     </jsp:attribute>
         <jsp:attribute name="menu">
             <div class="menuitem">
-                <a href="<c:url value="/Spot_edit"/>">Parkplatz anlegen</a>
+                <a href="<c:url value="/app/spots/*"/>">Parkplatz anlegen</a>
             </div>
             <div class="menuitem">
-                <a href="<c:url value="/Spots"/>">Parkplatz suchen</a>
+                <a href="<c:url value="/app/spots"/>">Parkplatz suchen</a>
             </div>
             <div class="menuitem">
-                <a href="<c:url value="/Favorites"/>">Favoriten anzeigen</a>
+                <a href="<c:url value="/app/favorites"/>">Favoriten anzeigen</a>
             </div>
             <div class="menuitem">
                 <a href="<c:url value="/app/user/"/>">Profil bearbeiten</a>
@@ -91,7 +91,7 @@ Diese JSP zeigt die aktuellen gebuchten Parkplätze des angemeldeten Benutzers a
                     <c:forEach items="${booking}" var="booking">
                         <tr>
                             <td>
-                                <a href="<c:url value="/app/booking/${booking.id}/"/>">
+                                <a href="<c:url value="/app/bookings/${booking.id}/"/>">
                                 <c:out value="${booking.id}"/>
                                 </a>
                             </td>

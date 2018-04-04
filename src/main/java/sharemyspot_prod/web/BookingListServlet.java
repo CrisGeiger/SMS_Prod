@@ -25,7 +25,7 @@ import  sharemyspot_prod.jpa.User;
  * @author Becker
  * Servlet dient dazu die BookingListe abzurufen, wenn der User diese anfragt
  */
-@WebServlet(name = "BookingListServlet", urlPatterns = {"/Bookings"})
+@WebServlet(urlPatterns = {"/app/bookings"})
 public class BookingListServlet extends HttpServlet {
 
     @EJB UserBean userBean;
@@ -58,7 +58,7 @@ public class BookingListServlet extends HttpServlet {
       
             }
         }
-        request.getRequestDispatcher("/WEB-INF/app/Bookings.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/app/booking_list.jsp").forward(request, response);
         
     }
 }

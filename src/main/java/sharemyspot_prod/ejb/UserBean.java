@@ -40,13 +40,13 @@ public class UserBean extends EntityBean<User, Long> {
     EJBContext ctx;
     
     @Override
-    @RolesAllowed("ShareMySpot-user")
+    @RolesAllowed("shareMySpot-app-user")
     public void delete(User user){ // Methode zum löschen eines Benutzers
        this.em.remove(user);
     }
     
     @Override
-    @RolesAllowed("ShareMySpot-user")
+    @RolesAllowed("ShareMySpot-app-user")
     public User update(User user){ // Methode zum Aktualisieren eines Benutzersprofils
        this.em.merge(user);
        return user;
@@ -85,7 +85,7 @@ public class UserBean extends EntityBean<User, Long> {
          }
          
          User user= new User(username, password, lastName, firstName, place, plz, road, roadNumber, phoneNumber, email);
-         user.addToGroup("ShareMySpot-user");
+         user.addToGroup("ShareMySpot-app-user");
          em.persist(user);
      }
 
@@ -107,7 +107,7 @@ public class UserBean extends EntityBean<User, Long> {
      * @param newPassword
      * @throws sharemyspot_prod.ejb.UserBean.InvalidCredentialsException
      */
-     @RolesAllowed("ShareMySpot-user")
+     @RolesAllowed("ShareMySpot-app-user")
     public void changePassword(User user, String oldPassword, String newPassword) throws InvalidCredentialsException {
         if (user == null || !user.checkPassword(oldPassword)) {
             throw new InvalidCredentialsException("Benutzername oder Passwort sind falsch.");

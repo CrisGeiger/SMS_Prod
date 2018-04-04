@@ -35,7 +35,7 @@ import sharemyspot_prod.jpa.SpotStatus;
  * edited Schabbach /21.03.2018/ bookSpot hinzugefügt
  * 
  */
-@WebServlet(name = "SpotEditServlet", urlPatterns = {"/Spot_edit"})
+@WebServlet(urlPatterns = {"/app/spots/*"})
 public class SpotEditServlet extends HttpServlet {
 
     @EJB
@@ -156,7 +156,7 @@ public class SpotEditServlet extends HttpServlet {
           // Nächste Seite aufrufen
             if (errors.isEmpty()) {
             // Keine Fehler: Startseite aufrufen
-            response.sendRedirect(WebUtils.appUrl(request, "/app/Spots/"));
+            response.sendRedirect(WebUtils.appUrl(request, "/app/spots/"));
         } else {
             // Fehler: Formuler erneut anzeigen
             FormValues formValues = new FormValues();
@@ -185,7 +185,7 @@ public class SpotEditServlet extends HttpServlet {
            this.spotBean.delete(spot);
            
            //zurück zur Übersicht
-           response.sendRedirect(WebUtils.appUrl(request, "/app/Spots/"));   
+           response.sendRedirect(WebUtils.appUrl(request, "/app/spots/"));   
            }
        
        /**
@@ -214,7 +214,7 @@ public class SpotEditServlet extends HttpServlet {
            
            
            //zurück zur Übersicht
-           response.sendRedirect(WebUtils.appUrl(request, "/app/Spots/"));   
+           response.sendRedirect(WebUtils.appUrl(request, "/app/spots/"));   
            }
        
       /**
