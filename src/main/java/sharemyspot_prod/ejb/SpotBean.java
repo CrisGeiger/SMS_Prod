@@ -26,7 +26,7 @@ import sharemyspot_prod.jpa.User;
  */
 
 @Stateless
-@RolesAllowed("ShareMySpot-app-user")
+@RolesAllowed("sharemyspot-app-user")
 public class SpotBean extends EntityBean<Spot, Long> {
     
     public SpotBean(){
