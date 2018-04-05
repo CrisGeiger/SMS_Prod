@@ -18,6 +18,7 @@
         wenn der Anwender sich mit einem gültigen Benutzer eingeloggt hat.
         Der Versuch, eine solche Seite aufzrufen, ohne eingeloggt zu sein,
         führt automatisch zur Login-Seite.
+        Edited: Schabbach,Geiger,Becker 04.04.18: role und realm Bezeichnungen an neues Realm scharemyspot umgeschrieben. Hier kam der Grund für die Hinzufügung aus der Vorgabe aus dem Tag "Form-Login-Page" für "WEB-INF" in der login.jsp.
         
     -->
     
