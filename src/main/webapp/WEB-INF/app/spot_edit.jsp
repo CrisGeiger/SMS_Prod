@@ -133,10 +133,10 @@
                 ${datum}
                 
                 <h4>Anbieter:</h4>
-                ${owner.name} <br>
-                ${owner.anschrift} <br>
+                ${owner.username} <br>
+                ${owner.road} <br>
                 ${owner.plz}
-                ${owner.ort}
+                ${owner.phoneNumber}
                 </div>
           
             <%-- Fehlermeldungen --%>
