@@ -12,6 +12,8 @@
     Changed on: 29.03.2018
     Editor    : BeckerA
     Den Bereich für die Erzeugung der Suchfelder erstellt.
+    
+    Edited Becker:  04.04.18 Das Eingabefeld roadNumber von seiner Bezeichnung an die Parameterbezeichnung im SpotListServlet angepasst.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -112,7 +114,7 @@
                                 <c:out value="${spot.road}"/>
                             </td>
                             <td>
-                                <c:out value="${spot.roadnumber}"/>
+                                <c:out value="${spot.roadNumber}"/>
                             </td>
                             <td>
                                 <c:out value="${spot.owner.username}"/>
