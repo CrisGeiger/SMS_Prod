@@ -30,7 +30,7 @@
         -->
         <web-resource-collection>
             <web-resource-name>sharemyspot-app</web-resource-name>
-            <url-pattern>/WEB-INF/app/*</url-pattern>
+            <url-pattern>/app/*</url-pattern>
         </web-resource-collection>
         
         <!--

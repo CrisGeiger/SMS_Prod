@@ -28,10 +28,7 @@ import sharemyspot_prod.jpa.User;
          */
   
 @Stateless
-public class UserBean extends EntityBean<User, Long> {  
-    public UserBean() {
-            super(User.class);
-                    }
+public class UserBean{  
             
     @PersistenceContext 
     EntityManager em;
@@ -39,13 +36,11 @@ public class UserBean extends EntityBean<User, Long> {
     @Resource
     EJBContext ctx;
     
-    @Override
     @RolesAllowed("ShareMySpot-app-user")
     public void delete(User user){ // Methode zum löschen eines Benutzers
        this.em.remove(user);
     }
     
-    @Override
     @RolesAllowed("ShareMySpot-app-user")
     public User update(User user){ // Methode zum Aktualisieren eines Benutzersprofils
        this.em.merge(user);
@@ -78,7 +73,7 @@ public class UserBean extends EntityBean<User, Long> {
              throws UsernameException, PasswordException{
          
          if(em.find(User.class,username)!= null){
-             throw new UsernameException("Benutzer ist bereits vergeben.");
+             throw new UsernameException("Benutzer ist bereits vergeben.".replace("$B", username));
          }
          if(!password.equals(password2)) {
              throw new PasswordException("Die Passwörter stimmen nicht überein.");
@@ -134,6 +129,7 @@ public class UserBean extends EntityBean<User, Long> {
      }
      
      public class PasswordException extends Exception{
+         
          public PasswordException(String message){
              super(message);
          }

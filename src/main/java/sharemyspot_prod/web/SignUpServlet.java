@@ -16,6 +16,7 @@ package sharemyspot_prod.web;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -72,13 +73,6 @@ public class SignUpServlet extends HttpServlet {
         String phoneNumber = request.getParameter("signup_phonenumber");
         String email = request.getParameter("signup_email");
         
-        /*int iplz=00000;
-        try{
-             iplz = Integer.parseInt(plz);
-        
-        }catch (NumberFormatException nfe){
-            
-        }*/
         
         // Eingaben prüfen
         User user = new User(username, password1, lastName, firstName, place, plz, road, roadnumber, phoneNumber, email);

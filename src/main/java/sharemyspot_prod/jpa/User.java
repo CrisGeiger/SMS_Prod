@@ -13,6 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -23,8 +24,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -40,25 +43,22 @@ import javax.validation.constraints.Size;
  * wie z.B. vorname in firstName, nachname in lastName,telefon in phoneNumber, anschrift in adrese
  * 18.03. Geiger: Listen aus Klasse entfernt
  */
-@Stateless
 @Entity
-@Table(name = "SMS_USER")
+@Table(name = "SHAREMYSPOT_USER")
 public class User implements Serializable {
-
-    @Id
-    @GeneratedValue
-    private Long id;
     
+    private static final long serialVersionUID = 1L;
+
+    @Id   
     @Column(name = "USERNAME", length = 64)
     @NotNull(message = "Der Name muss ausgefüllt sein")
     @Size(min = 3, max = 64, message = "Username muss zwischen 3 und 64 Zeichen besitzen")
     private String username;
     
     public class Password {
-        @Size(min = 6, max = 64, message = "Das Passwort muss zwischen 6 und 64 Zeichen lang sein.")
+        @Size(min = 3, max = 64, message = "Das Passwort muss zwischen 3 und 64 Zeichen lang sein.")
         public String password = "";
     }
-    
     
     @Transient
     private final Password password = new Password();
@@ -76,7 +76,6 @@ public class User implements Serializable {
     private String firstName;
     
     @Column(name = "PLACE", length = 64)
-    @Size(max = 5)
     @NotNull(message = "Der Ort darf nicht leer sein")
     private String place;
     
@@ -102,17 +101,15 @@ public class User implements Serializable {
     
     @ElementCollection
     @CollectionTable(
-            name = "SMS_USER_GROUP",
+            name = "SHAREMYSPOT_USER_GROUP",
             joinColumns = @JoinColumn(name = "USERNAME")
     )
     
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
     
-    /**
-    @OneToMany(fetch=FetchType.LAZY)
-    private Spot ownSpot;
-    */
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    List<Spot> spots = new ArrayList<>();
     
     
 
@@ -120,7 +117,7 @@ public class User implements Serializable {
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
     public User() {
     }
-
+    
     public User(String username, String password) {
         this.username = username;
         this.password.password = password;
@@ -143,13 +140,6 @@ public class User implements Serializable {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getter und Setter">
-    public Long getId() {
-        return id;
-    }
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
     
     public String getUsername() {
         return username;
@@ -157,14 +147,6 @@ public class User implements Serializable {
     
     public void setUsername(String username) {
         this.username = username;
-    }
-    
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-    
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
     }
     
     public String getLastName() {
@@ -231,15 +213,14 @@ public class User implements Serializable {
         this.email = email;
     }
     
-    /**
-    public Spot getOwnSpot() {
-        return ownSpot;
+    public List<Spot> getOwnSpots() {
+        return spots;
+    }
+
+    public void setOwnSpots(List<Spot> spots) {
+        this.spots = spots;
     }
     
-    public void setOwnSpot(Spot ownSpot) {
-        this.ownSpot = ownSpot;
-    }
-    */
     
 //</editor-fold>
             

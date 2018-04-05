@@ -37,7 +37,7 @@ import javax.validation.constraints.Size;
  */
 @Stateless
 @Entity
-@Table(name = "SMS_SPOT")
+@Table(name = "SHAREMYSPOT_SPOT")
 public class Spot implements Serializable{
     
     private static final long serialVersionUID = 1L;

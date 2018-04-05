@@ -57,28 +57,28 @@
                         <input type="password" name="signup_password2" value="${signup_form.values["signup_password2"][0]}">
                     </div>
                     
-                    <label for="signup_vorname">
+                    <label for="signup_firstname">
                         Vorname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_vorname" value="${signup_form.values["signup_vorname"][0]}">
+                        <input type="text" name="signup_firstname" value="${signup_form.values["signup_firstname"][0]}">
                     </div>
                     
-                    <label for="signup_nachname">
+                    <label for="signup_lastname">
                         Nachname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_nachname" value="${signup_form.values["signup_nachname"][0]}">
+                        <input type="text" name="signup_lastname" value="${signup_form.values["signup_lastname"][0]}">
                     </div>
                     
-                    <label for="signup_ort">
+                    <label for="signup_place">
                         Ort:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_ort" value="${signup_form.values["signup_ort"][0]}">
+                        <input type="text" name="signup_place" value="${signup_form.values["signup_place"][0]}">
                     </div>
                     
                     <label for="signup_plz">
@@ -105,12 +105,12 @@
                         <input type="text" name="signup_roadnumber" value="${signup_form.values["signup_roadnumber"][0]}">
                     </div>
                     
-                    <label for="signup_telefon">
+                    <label for="signup_phonenumber">
                         Telefonnummer:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_telefon" value="${signup_form.values["signup_telefon"][0]}">
+                        <input type="text" name="signup_phonenumber" value="${signup_form.values["signup_phonenumber"][0]}">
                     </div>
                     
                     <label for="signup_email">
