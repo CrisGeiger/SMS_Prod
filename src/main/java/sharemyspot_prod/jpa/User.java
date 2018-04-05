@@ -42,6 +42,8 @@ import javax.validation.constraints.Size;
  * zugleich im Konstruktor und in deren Methoden 
  * wie z.B. vorname in firstName, nachname in lastName,telefon in phoneNumber, anschrift in adrese
  * 18.03. Geiger: Listen aus Klasse entfernt
+ * 05.04.18 Schabbach: Mapping zu Spot mit Hilfe einer Liste und Elementen in der @OneToMany verändert 
+ * von einer einfachen Notation @OneToMany Beziehnung mit nur einer einzelnen Objekt Spot.
  */
 @Entity
 @Table(name = "SHAREMYSPOT_USER")
@@ -107,6 +109,7 @@ public class User implements Serializable {
     
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
+    
     
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     List<Spot> spots = new ArrayList<>();

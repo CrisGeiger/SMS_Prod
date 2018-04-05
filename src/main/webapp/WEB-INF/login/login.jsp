@@ -2,6 +2,8 @@
     Autor: AJ
     Dieser Quellcode ist lizenziert unter einer
     Creative Commons Namensnennung 4.0 International Lizenz.
+    edited: Becker 04.04.18 /WEB-INF/ in diesem und den anderen Servlets im Tag <% taglib ..%> hinzugefügt, um den Dateipfad zum Template "base" zu korrigieren. Dies führte dazu, dass nun erst klar ist für das Servlet, wie die Seite aufgebaut sein soll.
+    Dieser Korrektur führte zum ersten Erscheinen der Login-Benutzerfläche.
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

@@ -22,10 +22,13 @@ import sharemyspot_prod.jpa.User;
  * edited Bastian Schabbach 19.03 Methoden findUser ergänzt
  * edited Schabbach /21.03.2018/ Registration methode an Entityklasse angepasst
  * edited Becker: 1.04.2018 Deutsche Bezeichnungen auf englische Begriffe abgeändert.
+ * edited Becker: 05.04.18 In der @RolesAllowed Notationen der berechtigte Gruppenname an die veränderte Server-Configuration von Groß zu Kleinschreibung angepasst. Dies wurde auch in den anderen Beans durchgeführt.
+ * edited Geiger: 04.04.18 Entfernung der Vererbung der EntityBean und damit auch des Konstruktors für das Abfangen des Elternkonstruktors. 
+ * Da die notwendigen Methoden z.B. delete in der Klasse überschrieben wurden und man auf die find-Methode der EntityBean über den Import und dessen Objekt drauf zu greifen kann. 
  */
-        /**
-         * Die Userbean bietet verschiedene Methoden, um als Benutzer am Benutzerprofil zu bearbeiten 
-         */
+/**
+    * Die Userbean bietet verschiedene Methoden, um als Benutzer am Benutzerprofil zu bearbeiten 
+*/
   
 @Stateless
 public class UserBean{  
@@ -36,12 +39,12 @@ public class UserBean{
     @Resource
     EJBContext ctx;
     
-    @RolesAllowed("ShareMySpot-app-user")
+    @RolesAllowed("sharemyspot-app-user")
     public void delete(User user){ // Methode zum löschen eines Benutzers
        this.em.remove(user);
     }
     
-    @RolesAllowed("ShareMySpot-app-user")
+    @RolesAllowed("sharemyspot-app-user")
     public User update(User user){ // Methode zum Aktualisieren eines Benutzersprofils
        this.em.merge(user);
        return user;
@@ -102,7 +105,7 @@ public class UserBean{
      * @param newPassword
      * @throws sharemyspot_prod.ejb.UserBean.InvalidCredentialsException
      */
-     @RolesAllowed("ShareMySpot-app-user")
+     @RolesAllowed("sharemyspot-app-user")
     public void changePassword(User user, String oldPassword, String newPassword) throws InvalidCredentialsException {
         if (user == null || !user.checkPassword(oldPassword)) {
             throw new InvalidCredentialsException("Benutzername oder Passwort sind falsch.");

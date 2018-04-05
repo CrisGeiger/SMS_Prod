@@ -19,7 +19,7 @@ import sharemyspot_prod.jpa.User;
  * @author cgeiger1
  */
 @Stateless
-@RolesAllowed("ShareMySpot-app-user")
+@RolesAllowed("sharemyspot-app-user")
 public class BookingBean extends EntityBean <Booking, Long> {
     public BookingBean() {
         super(Booking.class);
