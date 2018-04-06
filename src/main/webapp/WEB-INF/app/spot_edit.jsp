@@ -45,8 +45,8 @@
                 <label for="spot_category">Kategorie:</label>
                 <div class="side-by-side">
                     <select name="spot_category" <c:if test="${owner.username != user.username}">disabled="true"</c:if>>
-                        <option value="Car">Auto</option>
-                        <option value="Motorcycle">Motorrad</option>
+                        <option value="CAR">Auto</option>
+                        <option value="MOTORCYCLE">Motorrad</option>
                     </select>
                 </div>
                         
