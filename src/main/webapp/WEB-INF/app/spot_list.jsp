@@ -28,8 +28,9 @@
     </jsp:attribute>
         
     <jsp:attribute name="head">
-            
+        <link rel="stylesheet" href="<c:url value="/css/spot_liat.css"/>" />
     </jsp:attribute>
+            
         <jsp:attribute name="menu">
             <div class="menuitem">
                 <a href="<c:url value="/app/spots/*"/>">Parkplatz anlegen</a>
@@ -41,24 +42,26 @@
                 <a href="<c:url value="/app/favorites"/>">Favoriten anzeigen</a>
             </div>
             <div class="menuitem">
+                <a href="<c:url value="/app/bookings"/>">Buchungen anzeigen</a>
+            </div>
+            <div class="menuitem">
                 <a href="<c:url value="/app/user"/>">Profil bearbeiten</a>
             </div>
         </jsp:attribute>
         
-         <%--
-            Im folgenden Bereich mit der id="search" werden die Suchfelder für die beliebige Suche erzeugt und dargestellt.
-            Durch das Anklicken des Buttons "Suchen" wird die search Methode von SpotBean Klasse durch das SpotListServlet angesteurt.
-        --%>
+    
+    <jsp:attribute name="content">
+            
         <form method="GET" class="horizontal" id="search">
             
-            <input type="text" name="search_text" value="${param.search_description}" placeholder="Beschreibung:"/>
+            <!--<input type="text" name="search_text" value="${param.search_description}" placeholder="Beschreibung:"/>-->
             <input type="text" name="search_username" value="${param.search_owner}" placeholder="Benutzername:"/>
             <input type="text" name="search_plz" value="${param.search_plz}" placeholder="Plz:"/>
             <input type="text" name="search_place" value="${param.search_place}" placeholder="Ort:"/>
             <input type="text" name="search_road" value="${param.search_road}" placeholder="Straße:"/>
             <input type="text" name="search_roadNumber" value="${param.search_roadNumber}" placeholder="Hausnummer:"/>            
-            <input type="text" name="search_searchDate" value="${param.search_searchDate}" placeholder="Gesuchtes Datum:"/>
-             
+            <!--<input type="text" name="search_searchDate" value="${param.search_searchDate}" placeholder="Gesuchtes Datum:"/>-->
+            <%-- 
             <select name="search_category">
                 <option value="">Alle Kategorien</option>
                 <c:forEach items="${categories}" var="category">
@@ -67,15 +70,14 @@
                     </option>
                 </c:forEach>
             </select>
+            --%>
 
             <button class="icon-search" type="submit">
                 Suchen
             </button>
         </form>
-     <%--
-        Im folgenden Bereich name="content" werden nach der Suche die Suchergebenisse eingetragen.
-     --%>
-    <jsp:attribute name="content">
+       
+
         <c:choose>
             <c:when test="${empty spots}">
                 <p>
@@ -83,7 +85,7 @@
                 </p>
             </c:when>
             <c:otherwise>
-                <jsp:useBean id="utils" class="sharemyspot.web.WebUtils"/>
+                <jsp:useBean id="utils" class="sharemyspot_prod.web.WebUtils"/>
                 <table>
                     <thead>
                         <tr>
