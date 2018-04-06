@@ -28,7 +28,7 @@
     </jsp:attribute>
         
     <jsp:attribute name="head">
-        <link rel="stylesheet" href="<c:url value="/css/spot_liat.css"/>" />
+        <link rel="stylesheet" href="<c:url value="/css/spot_list.css"/>" />
     </jsp:attribute>
             
         <jsp:attribute name="menu">
@@ -48,7 +48,7 @@
                 <a href="<c:url value="/app/user"/>">Profil bearbeiten</a>
             </div>
         </jsp:attribute>
-        
+      
     
     <jsp:attribute name="content">
             
